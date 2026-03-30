@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'driver_home_screen.dart';
 
-class RidePostedScreen extends StatefulWidget {
-  const RidePostedScreen({super.key});
+class DriverRideLiveScreen extends StatefulWidget {
+  const DriverRideLiveScreen({super.key});
 
   @override
-  State<RidePostedScreen> createState() => _RidePostedScreenState();
+  State<DriverRideLiveScreen> createState() => _DriverRideLiveScreenState();
 }
 
-class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerProviderStateMixin {
+class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with SingleTickerProviderStateMixin {
   static const Color _primaryColor = Color(0xFF8B1A2B);
   static const Color _darkMaroon = Color(0xFF5C0A1A);
 
@@ -45,7 +44,7 @@ class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerPr
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Ride Posted',
+          'My Ride',
           style: TextStyle(
             color: Color(0xFF1A1A1A),
             fontSize: 16,
@@ -55,7 +54,7 @@ class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerPr
         centerTitle: true,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: SingleChildScrollView( // using SingleChildScrollView to avoid overflow
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Column(
@@ -117,7 +116,7 @@ class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerPr
               ),
               const SizedBox(height: 12),
               const Text(
-                'Subscribers are being calculated and\nmatching you with passengers...', // Original mockup text
+                'Subscribers are being calculated and\nmatching you with passengers...',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
@@ -146,36 +145,53 @@ class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerPr
                       child: const Icon(Icons.route, color: _primaryColor, size: 20),
                     ),
                     const SizedBox(width: 16),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Departure',
-                          style: TextStyle(fontSize: 12, color: Color(0xFF757575)),
-                        ),
-                        const SizedBox(height: 4),
-                        const Text(
-                          'Amman',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
-                        ),
-                      ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Departure',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xFF757575),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          const Text(
+                            'Downtown Dubai',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF1A1A1A),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    const Spacer(),
                     const Icon(Icons.arrow_forward, color: Color(0xFFBDBDBD), size: 16),
-                    const Spacer(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Destination',
-                          style: TextStyle(fontSize: 12, color: Color(0xFF757575)),
-                        ),
-                        const SizedBox(height: 4),
-                        const Text(
-                          'Irbid',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
-                        ),
-                      ],
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Destination',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xFF757575),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          const Text(
+                            'Dubai Marina',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF1A1A1A),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -213,10 +229,7 @@ class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerPr
                 height: 52,
                 child: OutlinedButton(
                   onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (_) => const DriverHomeScreen()),
-                      (route) => false,
-                    );
+                    Navigator.of(context).popUntil((route) => route.isFirst);
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: const Color(0xFF1A1A1A),
@@ -243,3 +256,5 @@ class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerPr
     );
   }
 }
+
+

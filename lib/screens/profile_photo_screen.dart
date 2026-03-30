@@ -245,3 +245,4 @@ class ProfilePhotoScreen extends StatelessWidget {
     );
   }
 }
+

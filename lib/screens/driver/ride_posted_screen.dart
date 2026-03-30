@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class DriverRideLiveScreen extends StatefulWidget {
-  const DriverRideLiveScreen({super.key});
+
+class RidePostedScreen extends StatefulWidget {
+  const RidePostedScreen({super.key});
 
   @override
-  State<DriverRideLiveScreen> createState() => _DriverRideLiveScreenState();
+  State<RidePostedScreen> createState() => _RidePostedScreenState();
 }
 
-class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with SingleTickerProviderStateMixin {
+class _RidePostedScreenState extends State<RidePostedScreen> with SingleTickerProviderStateMixin {
   static const Color _primaryColor = Color(0xFF8B1A2B);
   static const Color _darkMaroon = Color(0xFF5C0A1A);
 
@@ -41,10 +42,10 @@ class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with Single
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.close, color: Color(0xFF1A1A1A)),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Navigator.of(context).popUntil((route) => route.isFirst),
         ),
         title: const Text(
-          'My Ride',
+          'Ride Posted',
           style: TextStyle(
             color: Color(0xFF1A1A1A),
             fontSize: 16,
@@ -54,7 +55,7 @@ class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with Single
         centerTitle: true,
       ),
       body: SafeArea(
-        child: SingleChildScrollView( // using SingleChildScrollView to avoid overflow
+        child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Column(
@@ -116,7 +117,7 @@ class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with Single
               ),
               const SizedBox(height: 12),
               const Text(
-                'Subscribers are being calculated and\nmatching you with passengers...',
+                'Subscribers are being calculated and\nmatching you with passengers...', // Original mockup text
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
@@ -145,53 +146,36 @@ class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with Single
                       child: const Icon(Icons.route, color: _primaryColor, size: 20),
                     ),
                     const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Departure',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF757575),
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            'Downtown Dubai',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xFF1A1A1A),
-                            ),
-                          ),
-                        ],
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Departure',
+                          style: TextStyle(fontSize: 12, color: Color(0xFF757575)),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          'Amman',
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
+                        ),
+                      ],
                     ),
+                    const Spacer(),
                     const Icon(Icons.arrow_forward, color: Color(0xFFBDBDBD), size: 16),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Destination',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF757575),
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            'Dubai Marina',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xFF1A1A1A),
-                            ),
-                          ),
-                        ],
-                      ),
+                    const Spacer(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Destination',
+                          style: TextStyle(fontSize: 12, color: Color(0xFF757575)),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          'Irbid',
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -229,7 +213,7 @@ class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with Single
                 height: 52,
                 child: OutlinedButton(
                   onPressed: () {
-                    Navigator.of(context).popUntil((route) => route.isFirst);
+                   Navigator.of(context).popUntil((route) => route.isFirst);
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: const Color(0xFF1A1A1A),
@@ -256,3 +240,5 @@ class _DriverRideLiveScreenState extends State<DriverRideLiveScreen> with Single
     );
   }
 }
+
+

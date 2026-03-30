@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'chat_screen.dart';
+import 'package:testtale3/screens/driver/driver_ride_live_screen.dart';
 
-class RideDetailsScreen extends StatelessWidget {
-  const RideDetailsScreen({super.key});
+class DriverRideDetailsScreen extends StatelessWidget {
+  const DriverRideDetailsScreen({super.key});
 
   static const Color _primaryColor = Color(0xFF8B1A2B);
   static const Color _darkMaroon = Color(0xFF5C0A1A);
@@ -10,7 +10,7 @@ class RideDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA), // Light gray background
+      backgroundColor: const Color(0xFFF8F9FA),
       body: SafeArea(
         child: Column(
           children: [
@@ -60,98 +60,7 @@ class RideDetailsScreen extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: [
-                    // Driver Card
-                    Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.all(20),
-                      child: Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => const ChatScreen(),
-                                ),
-                              );
-                            },
-                            child: const CircleAvatar(
-                              radius: 32,
-                              backgroundColor: Color(0xFFE0E0E0),
-                              child: Icon(Icons.person, color: Colors.white, size: 40),
-                            ),
-                          ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    const Text(
-                                      'Ahmed Al-Masri',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                        color: Color(0xFF1A1A1A),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFFFF8E1),
-                                        borderRadius: BorderRadius.circular(4),
-                                      ),
-                                      child: const Row(
-                                        children: [
-                                          Icon(Icons.star, color: Color(0xFFFFC107), size: 12),
-                                          SizedBox(width: 2),
-                                          Text(
-                                            '4.8',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700,
-                                              color: Color(0xFFF57F17),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 4),
-                                const Text(
-                                  'Kia Sportage • 40-1234',
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    color: Color(0xFF757575),
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Row(
-                                  children: [
-                                    const Icon(Icons.verified, color: _primaryColor, size: 14),
-                                    const SizedBox(width: 4),
-                                    const Text(
-                                      'VERIFIED DRIVER',
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w700,
-                                        color: _primaryColor,
-                                        letterSpacing: 1,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-
-                    // Map Section
+                    // Map & Route Section
                     Container(
                       color: Colors.white,
                       padding: const EdgeInsets.all(20),
@@ -164,11 +73,10 @@ class RideDetailsScreen extends StatelessWidget {
                               width: double.infinity,
                               child: Stack(
                                 children: [
-                                  // Placeholder map image
                                   Container(
-                                    color: const Color(0xFFE0F7FA),
+                                    color: const Color(0xFFE8F5E9), // Light green placeholder for map map
                                     child: Center(
-                                      child: Icon(Icons.map, size: 64, color: Colors.blue[200]),
+                                      child: Icon(Icons.map, size: 64, color: Colors.green[200]),
                                     ),
                                   ),
                                 ],
@@ -203,7 +111,7 @@ class RideDetailsScreen extends StatelessWidget {
                                     ),
                                     SizedBox(height: 4),
                                     Text(
-                                      'Irbid → Amman',
+                                      'Downtown Dubai →\nDubai Marina',
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w700,
@@ -227,7 +135,7 @@ class RideDetailsScreen extends StatelessWidget {
                                   ),
                                   SizedBox(height: 4),
                                   Text(
-                                    '1h 15m',
+                                    '15 min',
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
@@ -243,11 +151,11 @@ class RideDetailsScreen extends StatelessWidget {
                           // Time, Seats, Price Cards
                           Row(
                             children: [
-                              _buildInfoCard(Icons.access_time, 'DEPARTURE (EST)', '14:00'),
+                              _buildInfoCard(Icons.calendar_today, 'DATE & TIME', 'Today, 14:30'),
                               const SizedBox(width: 12),
-                              _buildInfoCard(Icons.event_seat, 'SEATS LEFT', '3'),
+                              _buildInfoCard(Icons.event_seat, 'SEATS', '3 left'),
                               const SizedBox(width: 12),
-                              _buildInfoCard(Icons.payments_outlined, 'PRICE', '5 JOD', isPrice: true),
+                              _buildInfoCard(Icons.payments_outlined, 'PRICE', '\$15.00', isPrice: true),
                             ],
                           ),
                         ],
@@ -264,7 +172,7 @@ class RideDetailsScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'TRIP RULES & FEATURES',
+                            'RIDE PREFERENCES',
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w700,
@@ -273,9 +181,9 @@ class RideDetailsScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          _buildRuleItem(Icons.smoke_free, 'No smoking allowed'),
-                          _buildRuleItem(Icons.luggage, 'Luggage space available'),
                           _buildRuleItem(Icons.ac_unit, 'Air conditioning'),
+                          _buildRuleItem(Icons.luggage, 'Luggage space available'),
+                          _buildRuleItem(Icons.smoke_free, 'No smoking allowed'),
                         ],
                       ),
                     ),
@@ -284,60 +192,85 @@ class RideDetailsScreen extends StatelessWidget {
               ),
             ),
 
-            // Bottom Booking Bar
+            // Bottom Passenger Details & Action Bar
             Container(
               padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
-                    color: Color(0x0D000000), // Colors.black.withOpacity(0.05)
+                    color: Color(0x0A000000),
                     blurRadius: 10,
                     offset: Offset(0, -5),
                   ),
                 ],
               ),
-              child: Row(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
+                  Row(
                     children: [
-                      const Icon(Icons.event_seat, color: _primaryColor, size: 24),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Select\nSeat',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                          color: _primaryColor,
-                          height: 1.2,
-                        ),
+                      const CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Color(0xFFFDF2F4),
+                        child: Icon(Icons.person, color: _primaryColor),
+                      ),
+                      const SizedBox(width: 12),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Tesla Model 3',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF1A1A1A),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              const Icon(Icons.star, color: Color(0xFFFFC107), size: 14),
+                              const SizedBox(width: 4),
+                              Text(
+                                '4.9 (1,418 rides)',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Color(0xFF757575),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  const SizedBox(width: 20),
-                  Expanded(
-                    child: SizedBox(
-                      height: 52,
-                      child: ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.check_circle_outline, size: 20),
-                        label: const Text(
-                          'Request Booking',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 52,
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const DriverRideLiveScreen(),
                           ),
+                        );
+                      },
+                      icon: const Icon(Icons.check_circle_outline, size: 20),
+                      label: const Text(
+                        'Contact & Confirm Ride',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
                         ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: _darkMaroon,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          elevation: 0,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: _darkMaroon,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
+                        elevation: 0,
                       ),
                     ),
                   ),
@@ -353,7 +286,7 @@ class RideDetailsScreen extends StatelessWidget {
   Widget _buildInfoCard(IconData icon, String label, String value, {bool isPrice = false}) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           color: const Color(0xFFFDF2F4),
           borderRadius: BorderRadius.circular(12),
@@ -361,7 +294,7 @@ class RideDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             Icon(icon, color: _primaryColor, size: 20),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
             Text(
               label,
               style: const TextStyle(
@@ -374,8 +307,9 @@ class RideDetailsScreen extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               value,
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 13,
                 fontWeight: FontWeight.w800,
                 color: isPrice ? _primaryColor : const Color(0xFF1A1A1A),
               ),
@@ -411,3 +345,5 @@ class RideDetailsScreen extends StatelessWidget {
     );
   }
 }
+
+

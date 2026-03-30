@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
+import 'package:testtale3/screens/splash_screen.dart';
 
 void main() {
   runApp(const Tale3App());
@@ -24,3 +24,4 @@ class Tale3App extends StatelessWidget {
     );
   }
 }
+

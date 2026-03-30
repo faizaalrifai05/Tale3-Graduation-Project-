@@ -344,3 +344,4 @@ class RatingsReviewsScreen extends StatelessWidget {
     );
   }
 }
+

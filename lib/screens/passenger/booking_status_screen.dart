@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cancel_trip_screen.dart';
+import 'package:testtale3/screens/passenger/cancel_trip_screen.dart';
 
 class BookingStatusScreen extends StatelessWidget {
   const BookingStatusScreen({super.key});
@@ -249,3 +249,5 @@ class BookingStatusScreen extends StatelessWidget {
     );
   }
 }
+
+

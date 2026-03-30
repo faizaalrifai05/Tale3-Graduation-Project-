@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'notes_and_rules_screen.dart';
+import 'package:testtale3/screens/notes_and_rules_screen.dart';
 
 class CommunityGuidelinesScreen extends StatelessWidget {
   const CommunityGuidelinesScreen({super.key});
@@ -318,3 +318,4 @@ class CommunityGuidelinesScreen extends StatelessWidget {
     );
   }
 }
+

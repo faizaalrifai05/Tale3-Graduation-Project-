@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'driver_ride_details_screen.dart';
+import 'package:testtale3/screens/driver/ride_posted_screen.dart';
 
 class DriverCreateRideScreen extends StatefulWidget {
   const DriverCreateRideScreen({super.key});
@@ -286,7 +286,7 @@ class _DriverCreateRideScreenState extends State<DriverCreateRideScreen> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const DriverRideDetailsScreen(),
+                        builder: (context) => const RidePostedScreen(),
                       ),
                     );
                   },
@@ -341,3 +341,5 @@ class _DriverCreateRideScreenState extends State<DriverCreateRideScreen> {
     );
   }
 }
+
+

@@ -1,46 +1,41 @@
 import 'package:flutter/material.dart';
+import '../../theme/app_styles.dart';
 
 class PickupScheduleScreen extends StatelessWidget {
   const PickupScheduleScreen({super.key});
 
-  static const Color _primaryColor = Color(0xFF8B1A2B);
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF1A1A1A)),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: const Text(
-          'Pickup Schedule',
-          style: TextStyle(
-            color: Color(0xFF1A1A1A),
-            fontSize: 16,
-            fontWeight: FontWeight.w800,
+    return Column(
+      children: [
+        // Inline header
+        Container(
+          color: Colors.white,
+          padding: const EdgeInsets.only(top: 48, left: 20, right: 20, bottom: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Pickup Schedule',
+                style: TextStyle(
+                  color: AppStyles.textPrimary,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.more_vert, color: AppStyles.textPrimary),
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert, color: Color(0xFF1A1A1A)),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                     // Map Overlay
                     Container(
                       height: 180,
@@ -57,7 +52,7 @@ class PickupScheduleScreen extends StatelessWidget {
                           const Positioned(
                             bottom: 50,
                             left: 60,
-                            child: Icon(Icons.place, color: _primaryColor, size: 24),
+                            child: Icon(Icons.place, color: AppStyles.primaryColor, size: 24),
                           ),
                           const Positioned(
                             top: 40,
@@ -67,7 +62,7 @@ class PickupScheduleScreen extends StatelessWidget {
                           const Positioned(
                             top: 80,
                             right: 120,
-                            child: Icon(Icons.local_airport, color: _primaryColor, size: 24),
+                            child: Icon(Icons.local_airport, color: AppStyles.primaryColor, size: 24),
                           ),
                         ],
                       ),
@@ -91,7 +86,7 @@ class PickupScheduleScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                             decoration: BoxDecoration(
                               color: const Color(0xFFFDF2F4),
-                              border: Border.all(color: _primaryColor.withValues(alpha: 0.3)),
+                              border: Border.all(color: AppStyles.primaryColor.withValues(alpha: 0.3)),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: const Text(
@@ -99,7 +94,7 @@ class PickupScheduleScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.w800,
-                                color: _primaryColor,
+                                color: AppStyles.primaryColor,
                                 letterSpacing: 0.5,
                               ),
                             ),
@@ -173,7 +168,7 @@ class PickupScheduleScreen extends StatelessWidget {
                               width: 44,
                               height: 44,
                               decoration: const BoxDecoration(
-                                color: _primaryColor,
+                                color: AppStyles.primaryColor,
                                 shape: BoxShape.circle,
                               ),
                               child: const Icon(Icons.flight_takeoff, color: Colors.white, size: 20),
@@ -188,7 +183,7 @@ class PickupScheduleScreen extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
-                                      color: _primaryColor,
+                                      color: AppStyles.primaryColor,
                                     ),
                                   ),
                                   SizedBox(height: 4),
@@ -208,52 +203,10 @@ class PickupScheduleScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 32),
                   ],
-                ),
-              ),
             ),
-          ],
+          ),
         ),
-      ),
-      
-      // Bottom Navigation (Scheduling focus)
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          border: Border(top: BorderSide(color: Color(0xFFE0E0E0), width: 1)),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: 1, // 'SCHEDULE' is selected based on mockup
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          selectedItemColor: _primaryColor,
-          unselectedItemColor: const Color(0xFF9E9E9E),
-          selectedFontSize: 10,
-          unselectedFontSize: 10,
-          elevation: 0,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: 'HOME',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_outlined),
-              activeIcon: Icon(Icons.calendar_today),
-              label: 'SCHEDULE',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.mail_outline),
-              activeIcon: Icon(Icons.mail),
-              label: 'INBOX',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              activeIcon: Icon(Icons.person),
-              label: 'PROFILE',
-            ),
-          ],
-        ),
-      ),
+      ],
     );
   }
 
@@ -291,7 +244,7 @@ class PickupScheduleScreen extends StatelessWidget {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: isCompleted ? _primaryColor : const Color(0xFFFDF2F4),
+                      color: isCompleted ? AppStyles.primaryColor : const Color(0xFFFDF2F4),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
@@ -300,7 +253,7 @@ class PickupScheduleScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w800,
-                          color: isCompleted ? Colors.white : _primaryColor,
+                          color: isCompleted ? Colors.white : AppStyles.primaryColor,
                         ),
                       ),
                     ),
@@ -352,7 +305,7 @@ class PickupScheduleScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
-                      color: isCompleted ? _primaryColor : const Color(0xFF1976D2), // Using a blue for 'Pending'
+                      color: isCompleted ? AppStyles.primaryColor : const Color(0xFF1976D2), // Using a blue for 'Pending'
                     ),
                   ),
                 ],
@@ -364,3 +317,6 @@ class PickupScheduleScreen extends StatelessWidget {
     );
   }
 }
+
+
+

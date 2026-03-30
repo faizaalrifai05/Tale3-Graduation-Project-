@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'welcome_screen.dart';
+import 'package:testtale3/screens/welcome_screen.dart';
 
 class NotesAndRulesScreen extends StatefulWidget {
   const NotesAndRulesScreen({super.key});
@@ -275,3 +275,4 @@ class _NotesAndRulesScreenState extends State<NotesAndRulesScreen> {
     );
   }
 }
+

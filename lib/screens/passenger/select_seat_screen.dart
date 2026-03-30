@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'booking_status_screen.dart';
+import 'package:testtale3/screens/passenger/booking_status_screen.dart';
 
 class SelectSeatScreen extends StatefulWidget {
   const SelectSeatScreen({super.key});
@@ -315,3 +315,5 @@ class _SelectSeatScreenState extends State<SelectSeatScreen> {
     );
   }
 }
+
+
