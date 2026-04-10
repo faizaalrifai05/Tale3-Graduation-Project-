@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'driver_id_verification_screen.dart';
+import 'package:testtale3/screens/driver/driver_id_verification_screen.dart';
 
 class DriverRegistrationScreen extends StatefulWidget {
   const DriverRegistrationScreen({super.key});
@@ -365,3 +365,5 @@ class _DriverRegistrationScreenState extends State<DriverRegistrationScreen> {
     );
   }
 }
+
+

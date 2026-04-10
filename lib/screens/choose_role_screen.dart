@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'driver_registration_screen.dart';
-import 'passenger_registration_screen.dart';
+import 'package:testtale3/screens/driver/driver_registration_screen.dart';
+import 'package:testtale3/screens/passenger/passenger_registration_screen.dart';
+import 'package:testtale3/screens/passenger/passenger_login_screen.dart';
+import 'package:testtale3/screens/driver/driver_login_screen.dart';
 
 class ChooseRoleScreen extends StatelessWidget {
-  const ChooseRoleScreen({super.key});
+  final bool isLogin;
+  const ChooseRoleScreen({super.key, this.isLogin = false});
 
   static const Color _primaryColor = Color(0xFF8B1A2B);
 
@@ -63,27 +66,29 @@ class ChooseRoleScreen extends StatelessWidget {
               const Spacer(flex: 2),
 
               // Choose Your Role heading
-              const Text(
-                'Choose Your Role',
-                style: TextStyle(
+              Text(
+                isLogin ? 'Log in to your account' : 'Choose Your Role',
+                style: const TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w800,
                   color: Color(0xFF1A1A1A),
                 ),
               ),
               const SizedBox(height: 6),
-              const Text(
-                'اختر دورك',
-                style: TextStyle(
+              Text(
+                isLogin ? 'سجل الدخول لحسابك' : 'اختر دورك',
+                style: const TextStyle(
                   fontSize: 14,
                   color: Color(0xFF9E9E9E),
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
-                'How would you like to use Tale3?\nChoose one to get started.',
+              Text(
+                isLogin 
+                    ? 'Welcome back! How would you like\nto log in today?' 
+                    : 'How would you like to use Tale3?\nChoose one to get started.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13,
                   color: Color(0xFF757575),
                   height: 1.5,
@@ -102,8 +107,9 @@ class ChooseRoleScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const PassengerRegistrationScreen(),
+                      builder: (context) => isLogin 
+                          ? const PassengerLoginScreen() 
+                          : const PassengerRegistrationScreen(),
                     ),
                   );
                 },
@@ -118,7 +124,9 @@ class ChooseRoleScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const DriverRegistrationScreen(),
+                      builder: (context) => isLogin 
+                          ? const DriverLoginScreen() 
+                          : const DriverRegistrationScreen(),
                     ),
                   );
                 },
@@ -255,3 +263,4 @@ class ChooseRoleScreen extends StatelessWidget {
     );
   }
 }
+

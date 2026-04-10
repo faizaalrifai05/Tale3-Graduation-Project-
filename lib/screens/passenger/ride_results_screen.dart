@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ride_details_screen.dart';
+import 'package:testtale3/screens/passenger/ride_details_screen.dart';
 
 class RideResultsScreen extends StatelessWidget {
   const RideResultsScreen({super.key});
@@ -426,3 +426,5 @@ class RideResultsScreen extends StatelessWidget {
     );
   }
 }
+
+

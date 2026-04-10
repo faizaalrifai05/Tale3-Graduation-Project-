@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testtale3/screens/driver/driver_home_screen.dart';
 
 class DriverVerificationStatusScreen extends StatelessWidget {
   const DriverVerificationStatusScreen({super.key});
@@ -107,7 +108,10 @@ class DriverVerificationStatusScreen extends StatelessWidget {
                   onPressed: () {
                     // Navigate to Dashboard. We can pop back to root or push replacement.
                     // Assuming returning to home or dashboard.
-                    Navigator.of(context).popUntil((route) => route.isFirst);
+                    //Navigator.of(context).popUntil((route) => route.isFirst);
+                    Navigator.of(context).pushReplacement(
+  MaterialPageRoute(builder: (context) => DriverHomeScreen()),
+);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFEDF1F5),
@@ -229,3 +233,5 @@ class DriverVerificationStatusScreen extends StatelessWidget {
     );
   }
 }
+
+

@@ -1,43 +1,41 @@
 import 'package:flutter/material.dart';
-import 'driver_home_screen.dart';
+import '../../theme/app_styles.dart';
 
 class DriverProfileScreen extends StatelessWidget {
   const DriverProfileScreen({super.key});
 
-  static const Color _primaryColor = Color(0xFF8B1A2B);
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF1A1A1A)),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: const Text(
-          'Driver Profile',
-          style: TextStyle(
-            color: Color(0xFF1A1A1A),
-            fontSize: 16,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings_outlined, color: Color(0xFF1A1A1A)),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
+    return Column(
+      children: [
+        // Inline header
+        Container(
+          color: Colors.white,
+          padding: const EdgeInsets.only(top: 48, left: 20, right: 8, bottom: 12),
+          child: Row(
             children: [
+              const Expanded(
+                child: Text(
+                  'Driver Profile',
+                  style: TextStyle(
+                    color: AppStyles.textPrimary,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.settings_outlined, color: AppStyles.textPrimary),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
               // Profile Header
               Container(
                 width: double.infinity,
@@ -53,7 +51,7 @@ class DriverProfileScreen extends StatelessWidget {
                           height: 100,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: Border.all(color: _primaryColor, width: 3),
+                            border: Border.all(color: AppStyles.primaryColor, width: 3),
                           ),
                           child: const Padding(
                             padding: EdgeInsets.all(2.0),
@@ -78,7 +76,7 @@ class DriverProfileScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Icon(Icons.verified, color: _primaryColor, size: 18),
+                            child: const Icon(Icons.verified, color: AppStyles.primaryColor, size: 18),
                           ),
                         ),
                       ],
@@ -166,7 +164,7 @@ class DriverProfileScreen extends StatelessWidget {
                               color: const Color(0xFFFDF2F4),
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            child: const Icon(Icons.directions_car, color: _primaryColor, size: 30),
+                            child: const Icon(Icons.directions_car, color: AppStyles.primaryColor, size: 30),
                           ),
                           const SizedBox(width: 16),
                           Expanded(
@@ -228,54 +226,7 @@ class DriverProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-
-      // Bottom Navigation
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          border: Border(top: BorderSide(color: Color(0xFFE0E0E0), width: 1)),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: 3,
-          onTap: (index) {
-            if (index == 0) {
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => const DriverHomeScreen()),
-                (route) => false,
-              );
-            }
-          },
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          selectedItemColor: _primaryColor,
-          unselectedItemColor: const Color(0xFF9E9E9E),
-          selectedFontSize: 10,
-          unselectedFontSize: 10,
-          elevation: 0,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: 'HOME',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.directions_car_outlined),
-              activeIcon: Icon(Icons.directions_car),
-              label: 'MY RIDES',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance_wallet_outlined),
-              activeIcon: Icon(Icons.account_balance_wallet),
-              label: 'WALLET',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              activeIcon: Icon(Icons.person),
-              label: 'PROFILE',
-            ),
-          ],
-        ),
-      ),
+      ],
     );
   }
 
@@ -287,7 +238,7 @@ class DriverProfileScreen extends StatelessWidget {
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w800,
-            color: _primaryColor,
+            color: AppStyles.primaryColor,
           ),
         ),
         const SizedBox(height: 4),
@@ -351,3 +302,6 @@ class DriverProfileScreen extends StatelessWidget {
     );
   }
 }
+
+
+

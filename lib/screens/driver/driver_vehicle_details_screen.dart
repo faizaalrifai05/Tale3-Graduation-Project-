@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'driver_verification_status_screen.dart';
+import 'package:testtale3/screens/driver/driver_verification_status_screen.dart';
 
 class DriverVehicleDetailsScreen extends StatelessWidget {
   const DriverVehicleDetailsScreen({super.key});
@@ -297,3 +297,5 @@ class DriverVehicleDetailsScreen extends StatelessWidget {
     );
   }
 }
+
+

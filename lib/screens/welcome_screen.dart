@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'choose_role_screen.dart';
-import 'login_screen.dart';
+import 'package:testtale3/screens/choose_role_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -118,7 +117,7 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
+                        builder: (context) => const ChooseRoleScreen(isLogin: true),
                       ),
                     );
                   },
@@ -174,3 +173,4 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
+

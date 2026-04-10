@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'passenger_home_screen.dart';
+import 'package:testtale3/screens/passenger/passenger_home_screen.dart';
 
 class VerificationSuccessScreen extends StatelessWidget {
   const VerificationSuccessScreen({super.key});
@@ -160,3 +160,4 @@ class VerificationSuccessScreen extends StatelessWidget {
     );
   }
 }
+

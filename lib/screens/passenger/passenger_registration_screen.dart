@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'profile_photo_screen.dart';
-import 'login_screen.dart';
+import 'package:testtale3/screens/profile_photo_screen.dart';
+import 'package:testtale3/screens/passenger/passenger_login_screen.dart';
 
 class PassengerRegistrationScreen extends StatefulWidget {
   const PassengerRegistrationScreen({super.key});
@@ -333,7 +333,7 @@ class _PassengerRegistrationScreenState
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const LoginScreen(),
+                                            const PassengerLoginScreen(),
                                       ),
                                     );
                                   },
@@ -444,3 +444,5 @@ class _PassengerRegistrationScreenState
     );
   }
 }
+
+

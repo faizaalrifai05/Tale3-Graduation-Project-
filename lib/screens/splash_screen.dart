@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'community_guidelines_screen.dart';
+import 'package:testtale3/screens/community_guidelines_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -192,3 +192,4 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
+
